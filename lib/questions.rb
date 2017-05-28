@@ -1,5 +1,6 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
+array.select { |x| x[0] == "a"}
 end
 
 # keep only the elements that start with a vowel
@@ -8,15 +9,24 @@ end
 
 # remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
+  array.each do |x|
+  if x.nil?
+    array.delete(x)
+  end
+end
 end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
+array.grep(String)
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
+  array.each do |x|
+    x.reverse!
+end
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
@@ -29,10 +39,12 @@ end
 # discard the first 3 elements of an array,
 # e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
+  array.slice(3,4)
 end
 
 # add an element to the beginning of an array
 def add_element_to_beginning_of_array(array, element)
+  array.unshift(element)
 end
 
 # sort an array of words by their last letter, e.g.
@@ -49,6 +61,11 @@ end
 # turn a positive integer into a negative integer. A negative integer
 # stays negative
 def make_numbers_negative(number)
+  if number > 0
+  number*-1
+else
+  number
+end
 end
 
 # turn an array of numbers into two arrays of numbers, one an array of
